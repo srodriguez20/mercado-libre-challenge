@@ -8,6 +8,6 @@ let router = express.Router();
 
 /* GET para obtener una compañia en particular */
 router.get('/', products.fetchProductsList);
-router.get('/:id', products.fetchProductById);
+router.get('/:itemId', products.fetchProductById);
 
 module.exports = router;
