@@ -1,0 +1,37 @@
+$background-color: #ebebeb;
+$meli-yellow: #fee600;
+$white-color: #ffffff;
+$lightgray-color: #eeeeee;
+$gray-color: #828282;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 380px;
+
+// Small tablets (portrait view)
+$screen-md-min: 960px;
+
+// Tablets and small desktops
+$screen-lg-min: 1240px;
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+

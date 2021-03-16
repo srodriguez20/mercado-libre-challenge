@@ -1,0 +1,50 @@
+@import '../../scss/contants.scss';
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    background-color: $meli-yellow;
+    padding: 10px 10px;
+    &-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        @include md {
+            width: 90%;
+        }
+        @include lg {
+            max-width: 900px;
+            width: 60%;
+        }
+    }
+
+
+    &-logo{
+        width: 5%;
+        height: auto;
+        max-width: 45px;
+        min-width: 40px;
+        margin-right: 2%;
+    }
+    &-searchIcon{
+        max-width: 18px;
+    }
+    &-searchButton{
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 0 3px 3px 0;
+    }
+    &-searchInput{
+        width: 100%;
+        border: none;
+        border-radius: 3px 0 0 3px;
+        padding-left: 20px;
+    }
+    &-searchForm{
+        flex-basis: 100%;
+        display: flex;
+    }
+}

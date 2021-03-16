@@ -1,0 +1,21 @@
+@import '../../scss/contants.scss';
+
+.layout{
+    background-color: white;
+    background-color:  $background-color;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.main{
+    margin:0 auto;
+    padding: 0;
+    @include md {
+        padding: 0 5%;
+    }
+    @include lg {
+        padding: 0 20%;
+        max-width: 900px;
+    }
+}
+
