@@ -1,32 +1,42 @@
 @import '../../scss/contants.scss';
 
-.productItem{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 2px solid $lightgray-color;
-    &-brief{
-        flex-basis: 60%;
-        padding-top: 0.8rem;
-    }
-    &-imageWrapper{
-        flex-basis: 15%;
-    }
-    &-image{
-        width: 100%;
-        border-radius: 3px;
-    }
-    &-location{
-        flex-basis: 20%;
-        padding-top: 2rem;
-        font-size: 0.8rem;
-        color: $gray-color;
-    }
-    &-price{
-        display: block;
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-
+.productItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 2px solid $lightest-gray-color;
+  &-brief {
+    flex-basis: 60%;
+    padding: 15px 20px 0;
+  }
+  &-imageWrapper {
+    flex-basis: 15%;
+    width: 160px;
+    height: 160px;
+  }
+  &-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px;
+    object-fit: contain;
+  }
+  &-location {
+    flex-basis: 20%;
+    padding-top: 2rem;
+    font-size: 0.8rem;
+    color: $gray-color;
+  }
+  &-price {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  &-title {
+    color: $black-color;
+  }
+  a {
+    text-decoration: none;
+  }
 }

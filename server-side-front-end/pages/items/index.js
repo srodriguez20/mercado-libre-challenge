@@ -1,41 +1,44 @@
+import axios from 'axios';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import Layout from '../../components/Layout';
 import ProductsList from '../../components/ProductsList';
-export default function Items() {
-  const pageTitle = 'iphone';
-  const productsList = [
-    {
-      id: 'MLA906695125',
-      title: 'iPhone 11 64 Gb (product)red',
-      price: 138000,
-      thumbnail:
-        'https://pbs.twimg.com/profile_images/846659478120366082/K-kZVvT8_400x400.jpg',
-      city: 'Buenos Aires',
-      shipping: {
-        free_shipping: true,
-      },
-    },
-    {
-      id: 'MLA906695126',
-      title: 'iPhone 11 64 Gb (product)red',
-      price: 138000,
-      thumbnail:
-        'http://http2.mlstatic.com/D_751765-MLA43654417389_102020-I.jpg',
-      city: 'Buenos Aires',
-      shipping: {
-        free_shipping: true,
-      },
-    },
-  ];
+import { api } from '../../config/config';
+import Breadcrum from '../../components/Breadcrum';
+import NotFoundCard from '../../components/NotFoundCard';
+
+function Items({ items = [], categories = [] }) {
+  const router = useRouter();
+  const search = router.query?.search || '';
   return (
     <Layout className='container'>
       <Head>
-        <title>{pageTitle} | Mercado Libre</title>
+        <title>{search} | Mercado Libre</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <section>
-        <ProductsList products={productsList} />
+        <Breadcrum categories={categories} />
+        {items.length > 0 ? (
+          <ProductsList products={items} />
+        ) : (
+          <NotFoundCard />
+        )}
       </section>
     </Layout>
   );
 }
+
+Items.getInitialProps = async ({ query }) => {
+  try {
+    const result = await axios.get(`${api.itemsList}${query.search}`);
+    return { ...result.data };
+  } catch (error) {
+    console.log(
+      '🚀 ~ file: index.js ~ line 30 ~ Items.getInitialProps= ~ error'
+    );
+  }
+  return { error: true };
+};
+
+export default Items;

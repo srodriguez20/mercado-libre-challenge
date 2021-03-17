@@ -1,12 +1,19 @@
+import PropTypes from 'prop-types';
 import styles from './ProductsList.module.scss';
+
 import ProductItem from '../../components/ProductItem';
 
-export default function ProductsList(props) {
+function ProductsList({ products = [] }) {
   return (
     <ul className={styles['productsList']}>
-      {props.products.map((product) => (
+      {products.map((product) => (
         <ProductItem product={product} key={product.id} />
       ))}
     </ul>
   );
 }
+
+ProductsList.propTypes = {
+  products: PropTypes.array,
+};
+export default ProductsList;

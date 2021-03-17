@@ -1,22 +1,11 @@
 import styles from './Layout.module.scss';
 import Header from '../Header';
 
-export default function Layout(props) {
+export default function Layout({ children }) {
   return (
     <div className={styles.layout}>
       <Header />
-      <main className={styles.main}>{props.children}</main>
-      <footer>
-        <a
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Powered by{' '}
-          <img src='/vercel.svg' alt='Vercel Logo' className='logo' />
-        </a>
-      </footer>
-
+      <main className={styles.main}>{children}</main>
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
         /* http://meyerweb.com/eric/tools/css/reset/ 

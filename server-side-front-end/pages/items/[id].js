@@ -1,44 +1,36 @@
 import Head from 'next/head';
+import axios from 'axios';
 import Layout from '../../components/Layout';
-import ProductItem from '../../components/ProductItem';
+import { api } from '../../config/config';
+import Breadcrum from '../../components/Breadcrum';
+import ProductDetail from '../../components/ProductDetail';
+import NotFoundCard from '../../components/NotFoundCard';
 
-export default function Items() {
-  const pageTitle = 'iphone';
-  const productsList = [
-    {
-      id: 'MLA906695125',
-      title: 'iPhone 11 64 Gb (product)red',
-      price: 138000,
-      thumbnail:
-        'http://http2.mlstatic.com/D_751765-MLA43654417389_102020-I.jpg',
-      city: 'Buenos Aires',
-      shipping: {
-        free_shipping: true,
-      },
-    },
-    {
-      id: 'MLA906695126',
-      title: 'iPhone 11 64 Gb (product)red',
-      price: 138000,
-      thumbnail:
-        'http://http2.mlstatic.com/D_751765-MLA43654417389_102020-I.jpg',
-      city: 'Buenos Aires',
-      shipping: {
-        free_shipping: true,
-      },
-    },
-  ];
+function ItemById({ item, categories = [], search }) {
   return (
     <Layout className='container'>
       <Head>
-        <title>{pageTitle} | Mercado Libre</title>
+        <title>{search} | Mercado Libre</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <section>
-        {productsList.map((product) => (
-          <ProductItem product={product} key={product.id} />
-        ))}
+        <Breadcrum categories={categories} />
+        {item ? <ProductDetail product={item} /> : <NotFoundCard />}
       </section>
     </Layout>
   );
 }
+
+ItemById.getInitialProps = async ({ query }) => {
+  try {
+    const result = await axios.get(`${api.itemDescription}${query.id}`);
+    return { ...result.data, search: query.search };
+  } catch (error) {
+    console.log(
+      '🚀 ~ file: [id].js ~ line 30 ~ Items.getInitialProps= ~ error'
+    );
+  }
+  return { error: true };
+};
+
+export default ItemById;
