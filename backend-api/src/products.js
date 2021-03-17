@@ -62,6 +62,8 @@ const fetchProductsList = async (req, res) => {
 };
 
 const itemDetailMapper = (item, desc) => {
+  const firstPicture =
+    item.pictures && item.pictures[0] ? item.pictures[0].url : null;
   const itemMap = {
     id: item.id,
     title: item.title,
@@ -70,7 +72,7 @@ const itemDetailMapper = (item, desc) => {
       amount: item.price,
       decimals: 0,
     },
-    picture: '',
+    picture: firstPicture,
     condition: item.condition,
     free_shipping: item.shipping.free_shipping,
     sold_quantity: item.sold_quantity,
@@ -88,9 +90,9 @@ const getItemDescription = async (itemId) => {
     if (data) {
       return data.plain_text;
     }
-    return undefined;
+    return null;
   } catch (error) {
-    return undefined;
+    return null;
   }
 };
 
