@@ -10,7 +10,7 @@ function ItemById({ item, categories = [], search }) {
   return (
     <Layout className='container'>
       <Head>
-        <title>{search} | Mercado Libre</title>
+        <title>{item?.title || ''} | Mercado Libre</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <section>
@@ -23,8 +23,9 @@ function ItemById({ item, categories = [], search }) {
 
 ItemById.getInitialProps = async ({ query }) => {
   try {
-    const result = await axios.get(`${api.itemDescription}${query.id}`);
-    return { ...result.data, search: query.search };
+    const itemId = query.id.split('-');
+    const result = await axios.get(`${api.itemDescription}${itemId[0]}`);
+    return { ...result.data };
   } catch (error) {
     console.log(
       '🚀 ~ file: [id].js ~ line 30 ~ Items.getInitialProps= ~ error'

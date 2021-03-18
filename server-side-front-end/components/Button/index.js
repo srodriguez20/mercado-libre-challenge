@@ -10,8 +10,8 @@ function Button({ children, ariaLabel, type = 'button' }) {
 }
 
 Button.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   ariaLabel: PropTypes.string,
-  type: PropTypes.type,
+  type: PropTypes.string,
 };
 export default Button;

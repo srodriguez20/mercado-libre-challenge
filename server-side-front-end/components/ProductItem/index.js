@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './ProductItem.module.scss';
 function ProductItem(props) {
   const { id, price, title, picture, state_name } = props.product;
+  const detailUrl = `/items/${id}-${encodeURI(title)}`;
 
   const priceFormatter = (value) => {
     const formatter = new Intl.NumberFormat('es-CO', {
@@ -18,12 +19,12 @@ function ProductItem(props) {
   return (
     <li className={styles['productItem']}>
       <div className={styles['productItem-imageWrapper']}>
-        <Link href={`/items/${id}`}>
+        <Link href={detailUrl}>
           <a>
             <img
               src={picture}
               className={styles['productItem-image']}
-              alt={title}
+              alt={`${title} thumbnail`}
             />
           </a>
         </Link>
@@ -32,14 +33,14 @@ function ProductItem(props) {
         <span className={styles['productItem-price']}>
           {price ? priceFormatter(price) : ''}
         </span>
-        <Link href={`/items/${id}`}>
+        <Link href={detailUrl}>
           <a>
             <h2 className={styles['productItem-title']}>{title}</h2>
           </a>
         </Link>
       </div>
       <div className={styles['productItem-location']}>
-        <p className={styles['productItem-city']}>{state_name}</p>
+        <address className={styles['productItem-city']}>{state_name}</address>
       </div>
     </li>
   );

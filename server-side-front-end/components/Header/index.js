@@ -32,6 +32,7 @@ export default function Header() {
             <img
               src='/mercado-libre-logo.png'
               className={styles['searchBar-logo']}
+              alt='logo mercadolibre'
             />
           </a>
         </Link>
@@ -55,7 +56,11 @@ export default function Header() {
             type='submit'
             aria-label='buscar'
           >
-            <img src='/loupe.svg' className={styles['searchBar-searchIcon']} />
+            <img
+              src='/loupe.svg'
+              className={styles['searchBar-searchIcon']}
+              alt='icono busqueda'
+            />
           </button>
         </form>
       </div>

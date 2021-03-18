@@ -17,6 +17,7 @@ function Breadcrum({ categories = [] }) {
             <img
               src='/chevron.svg'
               className={styles['breadcrum-divider']}
+              alt='arrow icon'
             ></img>
           </div>
         );

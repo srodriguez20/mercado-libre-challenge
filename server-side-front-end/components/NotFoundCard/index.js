@@ -7,7 +7,7 @@ function NotFoundCard() {
         <img
           src='/not-found.svg'
           className={styles['notFound-image']}
-          alt='not found'
+          alt='icono de no se encontro nada'
         />
       </div>
       <div className={styles['notFound-text']}>

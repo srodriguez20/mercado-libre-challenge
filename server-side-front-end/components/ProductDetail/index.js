@@ -24,7 +24,7 @@ function ProductDetail(props) {
   };
 
   return (
-    <article className={styles['productDetail']}>
+    <section className={styles['productDetail']}>
       <div className={styles['productDetail-imageWrapper']}>
         <img
           src={picture}
@@ -54,7 +54,7 @@ function ProductDetail(props) {
         </h2>
         <p className={styles['productDetail-description']}>{description}</p>
       </div>
-    </article>
+    </section>
   );
 }
 
