@@ -10,7 +10,7 @@ import NotFoundCard from '../../components/NotFoundCard';
 
 function Items({ items = [], categories = [] }) {
   const router = useRouter();
-  const search = router.query?.search || '';
+  const search = router.query.search || '';
   return (
     <Layout className='container'>
       <Head>

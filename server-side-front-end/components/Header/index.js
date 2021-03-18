@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Header() {
   const router = useRouter();
-  const inicialSearch = router.query?.search || '';
+  const inicialSearch = router.query.search || '';
   const [searchValue, setSearchValue] = useState(inicialSearch);
 
   const handleChange = (ev) => {

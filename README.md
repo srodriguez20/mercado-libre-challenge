@@ -4,8 +4,8 @@
 
 1.  Asegurarse de tener instalada una versión de Node.js igual o superior a 10.13
 2.  Clonar el repositorio `git clone https://github.com/srodriguez20/mercado-libre-challenge`
-3.  Iniciar los servicios de Back End. Desde la carpeta `cd backend-api`. Instalar las dependencias `npm i` y ejecutar la aplicacion pm run start`
-4.  Iniciar la aplicación web. Desde la carpeta `cd server-side-front-end`. Instalar las dependencias `npm i`, construir la aplicación `npm run build` y servir la aplicación `npm run start`
+3.  Iniciar los servicios de Back End. Desde la carpeta de Back, `cd backend-api`. Instalar las dependencias `npm i` y ejecutar la aplicación `npm run start`
+4.  Iniciar la aplicación web. Desde la carpeta de front, `cd server-side-front-end`. Instalar las dependencias `npm i`, construir la aplicación `npm run build` y servir la aplicación `npm run start`
 
 ## Decisiones tecnológicas
 

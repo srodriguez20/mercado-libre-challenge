@@ -10,7 +10,7 @@ function ItemById({ item, categories = [], search }) {
   return (
     <Layout className='container'>
       <Head>
-        <title>{item?.title || ''} | Mercado Libre</title>
+        <title>{item.title || ''} | Mercado Libre</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <section>
