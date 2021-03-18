@@ -11,7 +11,7 @@ function ProductItem(props) {
     free_shipping,
     state_name,
   } = props.product;
-  const detailUrl = `/items/${id}-${encodeURI(title)}`;
+  const detailUrl = `/items/${id}-${encodeURIComponent(title)}`;
 
   const priceFormatter = (value) => {
     const formatter = new Intl.NumberFormat('de', {

@@ -6,6 +6,7 @@
 2.  Clonar el repositorio `git clone https://github.com/srodriguez20/mercado-libre-challenge`
 3.  Iniciar los servicios de Back End. Desde la carpeta de Back, `cd backend-api`. Instalar las dependencias `npm i` y ejecutar la aplicación `npm run start`
 4.  Iniciar la aplicación web. Desde la carpeta de front, `cd server-side-front-end`. Instalar las dependencias `npm i`, construir la aplicación `npm run build` y servir la aplicación `npm run start`
+5.  La aplicacion queda expuesta en http://localhost:3000/
 
 ## Decisiones tecnológicas
 
