@@ -1,8 +1,11 @@
 const axios = require('axios');
-const API_URL = 'https://api.mercadolibre.com';
-const ITEMS_ENDPOINT = '/items/';
-const ITEMS_DESC_ENDPOINT = '/description';
-const CATEGORIES_ENDPOINT = '/categories/';
+
+const {
+  API_URL,
+  ITEMS_ENDPOINT,
+  ITEMS_DESC_ENDPOINT,
+  CATEGORIES_ENDPOINT,
+} = require('./config/config');
 
 const itemDetailMapper = (item, desc) => {
   const firstPicture =
@@ -66,8 +69,8 @@ const fetchProductById = async (req, res) => {
 
       const result = {
         author: {
-          name: '',
-          lastname: '',
+          name: 'Santiago',
+          lastname: 'Rodriguez',
         },
         categories: categories,
         item: itemDetailMapper(data, itemDescRequest),

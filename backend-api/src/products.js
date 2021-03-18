@@ -1,7 +1,6 @@
 const axios = require('axios');
-const API_URL = 'https://api.mercadolibre.com';
-const SEARCH_ENDPOINT = '/sites/MLA/search';
-const SEARCH_API_URL = `${API_URL}${SEARCH_ENDPOINT}`;
+const { SEARCH_API_URL } = require('./config/config');
+
 const limit = 4;
 
 const categoryListBuilder = (filters) => {
@@ -45,7 +44,7 @@ const fetchProductsList = async (req, res) => {
     if (data) {
       const catergoriesList = categoryListBuilder(data.filters);
       const result = {
-        author: { name: '', lastname: '' },
+        author: { name: 'Santiago', lastname: 'Rodriguez' },
         categories: catergoriesList,
         items: data.results.map(itemMapper),
       };
