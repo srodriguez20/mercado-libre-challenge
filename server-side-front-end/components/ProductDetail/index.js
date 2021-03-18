@@ -14,13 +14,11 @@ function ProductDetail(props) {
   } = props.product;
 
   const priceFormatter = (value) => {
-    const formatter = new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: 'COP',
+    const formatter = new Intl.NumberFormat('de', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     });
-    return formatter.format(value.amount);
+    return `$ ${formatter.format(value.amount)}`;
   };
 
   return (

@@ -3,36 +3,48 @@ import Link from 'next/link';
 
 import styles from './ProductItem.module.scss';
 function ProductItem(props) {
-  const { id, price, title, picture, state_name } = props.product;
+  const {
+    id,
+    price,
+    title,
+    picture,
+    free_shipping,
+    state_name,
+  } = props.product;
   const detailUrl = `/items/${id}-${encodeURI(title)}`;
 
   const priceFormatter = (value) => {
-    const formatter = new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: 'COP',
+    const formatter = new Intl.NumberFormat('de', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     });
-    return formatter.format(value.amount);
+    return `$ ${formatter.format(value.amount)}`;
   };
 
   return (
     <li className={styles['productItem']}>
-      <div className={styles['productItem-imageWrapper']}>
-        <Link href={detailUrl}>
-          <a>
-            <img
-              src={picture}
-              className={styles['productItem-image']}
-              alt={`${title} thumbnail`}
-            />
-          </a>
-        </Link>
-      </div>
+      <Link href={detailUrl}>
+        <a className={styles['productItem-imageWrapper']}>
+          <img
+            src={picture}
+            className={styles['productItem-image']}
+            alt={`${title} thumbnail`}
+          />
+        </a>
+      </Link>
+
       <div className={styles['productItem-brief']}>
-        <span className={styles['productItem-price']}>
-          {price ? priceFormatter(price) : ''}
-        </span>
+        <div className={styles['productItem-briefHeader']}>
+          <span className={styles['productItem-price']}>
+            {price ? priceFormatter(price) : ''}
+          </span>
+          {free_shipping && (
+            <span className={styles['productItem-freeShipping']}>
+              <img src='/truck.svg' alt='icono envio gratis' />
+            </span>
+          )}
+        </div>
+
         <Link href={detailUrl}>
           <a>
             <h2 className={styles['productItem-title']}>{title}</h2>

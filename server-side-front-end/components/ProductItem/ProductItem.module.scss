@@ -11,7 +11,7 @@
     padding: 15px 20px 0;
   }
   &-imageWrapper {
-    flex-basis: 15%;
+    flex-basis: 160px;
     width: 160px;
     height: 160px;
   }
@@ -25,16 +25,32 @@
   &-location {
     flex-basis: 20%;
     padding-top: 2rem;
-    font-size: 0.8rem;
+    font-size: $label-font-size;
     color: $gray-color;
   }
   &-price {
     display: block;
-    font-size: 1.2rem;
+    font-size: $subheader-font-size;
     margin-bottom: 1rem;
+    margin-right: 10px;
   }
   &-title {
     color: $black-color;
+  }
+  &-briefHeader {
+    display: flex;
+    flex-direction: row;
+  }
+  &-freeShipping {
+    background-color: $green-color;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    display: flex;
+    img {
+      margin: auto;
+      width: 13px;
+    }
   }
   a {
     text-decoration: none;
